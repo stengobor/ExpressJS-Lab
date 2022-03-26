@@ -1,29 +1,33 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+// const usersPath = path.join(__dirname, "login-info.json");
 let app = express();
+
+
+app.use(express.json());
+app.use(express.urlencoded({encoded: true}));
 
 app.use((req, res, next) => {
     console.log(req.url);
     next();
 });
 
-// app.get("/", (req, res) => {
-//     res.send('Hello from the web server side...');
-// });
+app.post("/user-info", (req, res) => {
+    console.log(req.body);
+    
+    fs.writeFile('loginfo.json', JSON.stringify(req.body), (err) => console.log(err));
+
+    res.send('Thanks for logging in!');
+});
+
 
 app.use(express.static(path.join(__dirname, "../public")));
-
-
-
+    
+    
 app.listen(3000, () => console.log('hello from the web server...'));
 
 
-// app.use("/order/:name", (req, res) => {
-//   let name = req.params.name;
-//   let email = req.query.email;
-//   res.send(`Your name is ${name} and your email is ${email}`);
-// });
 
 // app.get('/', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../public/index.html'));

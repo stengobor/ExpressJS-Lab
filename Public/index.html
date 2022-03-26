@@ -16,18 +16,31 @@
   <body>
     <h1>BLAH BLAH...</h1>
 
-    <div class="row justify-content-center">
-      <div class="col-sm-4">
-        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+    <form action="/user-info" method="POST">
+      <div class="row justify-content-center m-5">
+        <div class="col-sm-4">
+          <lable for="first_name">Enter First Name</lable>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+          <lable for="last_name">Enter Last Name</lable>
+          <input type="text" class="form-control" />
+        </div>
       </div>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+      <div class="row justify-content-center m-5">
+        <div class="col-sm-4">
+          <lable for="username">Enter Username</lable>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+          <lable for="email">Enter Email</lable>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="d-flex justify-content-center m-5">
+          <input type="submit" class="btn btn-primary" />
+        </div>
       </div>
-      <div class="d-flex justify-content-center m-5">
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-
+    </form>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
